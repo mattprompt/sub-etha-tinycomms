@@ -1,0 +1,5 @@
+615a616,619
+> /* hack in AtTiny214 */
+> #elif defined (__AVR_ATtiny214__)
+> #  include <avr/iotn214.h>
+> /* end AtTiny214 hack in */
