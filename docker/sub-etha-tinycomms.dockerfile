@@ -27,7 +27,8 @@ RUN apt-get update && apt-get upgrade -y --no-install-recommends && \
     git \
     unzip \
     wget \
-    patch
+    patch \
+    ca-certificates
 
 
 # Install CPPUTEST
