@@ -13,5 +13,7 @@ jobs:
         run: |
           pwd
           set
+          dir
           cd test
+          dir
           make all
