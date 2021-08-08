@@ -30,8 +30,8 @@ endif
 #
 #SRC_FILES += example-src/Example.c
 #SRC_DIRS += example-platform
-SRC_FILES += /sub-etha-tinycomms/src/messageHandler.c
-SRC_DIRS += /sub-etha-tinycomms/src/
+SRC_FILES += ../src/messageHandler.c
+SRC_DIRS += ../src/
 
 # --- TEST_SRC_FILES and TEST_SRC_DIRS ---
 # Test files are always included in the build.
@@ -43,7 +43,7 @@ SRC_DIRS += /sub-etha-tinycomms/src/
 # TEST_SRC_DIRS, builds everything in the directory
 
 TEST_SRC_FILES +=
-TEST_SRC_DIRS += /sub-etha-tinycomms/test
+TEST_SRC_DIRS += ../test
 #TEST_SRC_DIRS += tests/io-cppumock
 #	tests/example-fff \
 #	tests/fff \
