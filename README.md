@@ -1,5 +1,8 @@
 # Sub-Etha-Tinycomms
+[![SUB-ETHA-TINYCOMMS][build-badge-img]][build-link]
 
+[build-badge-img]: https://github.com/mattprompt/sub-etha-tinycomms/actions/workflows/sub-etha-tinycomms.yml/badge.svg
+[build-link]: https://github.com/mattprompt/sub-etha-tinycomms/actions/workflows/sub-etha-tinycomms.yml
 ## Overview
 
 **Sub-Etha-Tinycomms** is an toy project using some comms and peripherals
