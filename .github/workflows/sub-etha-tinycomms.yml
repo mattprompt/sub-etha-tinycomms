@@ -15,10 +15,11 @@ jobs:
           set
           dir
       - name: Run Tests
-        run: |
+      - run: |
           cd test
           make all
           cd ..
-      -name: Build ATTiny214 Target
+      - name: Build ATTiny214 Target
+      - run: |
           cd src
           make all
