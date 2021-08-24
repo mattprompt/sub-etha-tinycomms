@@ -58,12 +58,6 @@ typedef struct Msg_Header_s {
     uint8_t len;
 } Msg_Header_t;
 
-typedef union Msg_Header_u
-{
-    Msg_Header_t header;
-    uint8_t bytes[sizeof(Msg_Header_t) / sizeof(uint8_t)];
-} Msg_uHeader_t;
-
 // CMD1
 typedef struct Cmd1_Payload_s {
     uint8_t adcChannel;
@@ -73,12 +67,6 @@ typedef struct Cmd1_Msg_s {
     Msg_Header_t header;
     Cmd1_Payload_t payload;
 } Cmd1_Msg_t;
-
-typedef union Cmd1_Msg_u
-{
-    Cmd1_Msg_t msg;
-    uint8_t bytes[sizeof(Cmd1_Msg_t) / sizeof(uint8_t)];
-} Cmd1_uMsg_t;
 
 // CMD2
 typedef struct Cmd2_Payload_s {
@@ -91,11 +79,6 @@ typedef struct Cmd2_Msg_s {
     Cmd2_Payload_t payload;
 } Cmd2_Msg_t;
 
-typedef union Cmd2_Msg_u
-{
-    Cmd2_Msg_t msg;
-    uint8_t bytes[sizeof(Cmd2_Msg_t) / sizeof(uint8_t)];
-} Cmd2_uMsg_t;
 
 /*
 Reply:
@@ -126,11 +109,6 @@ typedef struct Rply1_Msg_s {
     Rply1_Payload_t payload;
 } Rply1_Msg_t;
 
-typedef union Rply1_Msg_u
-{
-    Rply1_Payload_t msg;
-    uint8_t bytes[sizeof(Rply1_Payload_t) / sizeof(uint8_t)];
-} Rply1_uMsg_t;
 
 // RPLY2
 typedef struct Rply2_Payload_s {
@@ -142,11 +120,6 @@ typedef struct Rply2_Msg_s {
     Rply2_Payload_t payload;
 } Rply2_Msg_t;
 
-typedef union Rply2_Msg_u
-{
-    Rply2_Payload_t msg;
-    uint8_t bytes[sizeof(Rply2_Payload_t) / sizeof(uint8_t)];
-} Rply2_uMsg_t;
 
 /*
 Algorithm
