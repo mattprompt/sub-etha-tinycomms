@@ -26,8 +26,7 @@ typedef enum Rply_Type_e {
     RPLY2 = 0x82
 } Rply_Type_t;
 
-typedef struct Msg_Handler_Ctx_s
-{
+typedef struct Msg_Handler_Ctx_s {
     uint8_t errCnt;
 } Msg_Handler_Ctx_t;
 
