@@ -16,14 +16,12 @@
 #endif
 
 // ENUMS
-typedef enum Cmd_Type_e
-{
+typedef enum Cmd_Type_e {
     CMD1 = 0x01,
     CMD2 = 0x02
 } Cmd_Type_t;
 
-typedef enum Rply_Type_e
-{
+typedef enum Rply_Type_e {
     RPLY1 = 0x81,
     RPLY2 = 0x82
 } Rply_Type_t;
@@ -56,8 +54,7 @@ D/A converter.
  * Command and Reply message have save header structure
  * 
 */
-typedef struct Msg_Header_s
-{
+typedef struct Msg_Header_s {
     uint8_t cmd;
     uint8_t len;
 } Msg_Header_t;
@@ -69,13 +66,11 @@ typedef union Msg_Header_u
 } Msg_uHeader_t;
 
 // CMD1
-typedef struct Cmd1_Payload_s
-{
+typedef struct Cmd1_Payload_s {
     uint8_t adcChannel;
 } Cmd1_Payload_t;
 
-typedef struct Cmd1_Msg_s
-{
+typedef struct Cmd1_Msg_s {
     Msg_Header_t header;
     Cmd1_Payload_t payload;
 } Cmd1_Msg_t;
@@ -87,14 +82,12 @@ typedef union Cmd1_Msg_u
 } Cmd1_uMsg_t;
 
 // CMD2
-typedef struct Cmd2_Payload_s
-{
+typedef struct Cmd2_Payload_s {
     uint8_t dacChannel;
     uint16_t value;
 } Cmd2_Payload_t;
 
-typedef struct Cmd2_Msg_s
-{
+typedef struct Cmd2_Msg_s {
     Msg_Header_t header;
     Cmd2_Payload_t payload;
 } Cmd2_Msg_t;
@@ -124,14 +117,12 @@ Payload: ACK/NACK 1 B. 0x55/0xAA respectively.
 */
 
 // RPLY1
-typedef struct Rply1_Payload_s
-{
+typedef struct Rply1_Payload_s {
     uint8_t channels;
     uint16_t value;
 } Rply1_Payload_t;
 
-typedef struct Rply1_Msg_s
-{
+typedef struct Rply1_Msg_s {
     Msg_Header_t header;
     Rply1_Payload_t payload;
 } Rply1_Msg_t;
@@ -143,13 +134,11 @@ typedef union Rply1_Msg_u
 } Rply1_uMsg_t;
 
 // RPLY2
-typedef struct Rply2_Payload_s
-{
+typedef struct Rply2_Payload_s {
     uint8_t value;
 } Rply2_Payload_t;
 
-typedef struct Rply2_Msg_s
-{
+typedef struct Rply2_Msg_s {
     Msg_Header_t header;
     Rply2_Payload_t payload;
 } Rply2_Msg_t;
