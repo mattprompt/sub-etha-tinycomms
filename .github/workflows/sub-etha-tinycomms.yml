@@ -10,16 +10,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Describe Environment 
-      - run: |
+        run: |
           pwd
           set
           dir
       - name: Run Tests
-      - run: |
+        run: |
           cd test
           make all
           cd ..
       - name: Build ATTiny214 Target
-      - run: |
+        run: |
           cd src
           make all
