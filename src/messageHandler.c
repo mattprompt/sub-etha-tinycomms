@@ -26,6 +26,9 @@ typedef enum Rply_Type_e {
     RPLY2 = 0x82
 } Rply_Type_t;
 
+//https://stackoverflow.com/questions/11770451/what-is-the-meaning-of-attribute-packed-aligned4
+#pragma pack(push,1)
+
 typedef struct Msg_Handler_Ctx_s {
     uint8_t errCnt;
 } Msg_Handler_Ctx_t;
@@ -120,6 +123,7 @@ typedef struct Rply2_Msg_s {
     Rply2_Payload_t payload;
 } Rply2_Msg_t;
 
+#pragma push(pop)
 
 /*
 Algorithm
