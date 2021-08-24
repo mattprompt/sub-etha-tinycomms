@@ -4,16 +4,21 @@ on: push
 
 jobs:
   test:
-    name: Unit Tests
+    name: Unit Tests & Build 
     runs-on: ubuntu-latest
     container: docker://mattprompt/sub-etha-tinycomms:latest
     steps:
       - uses: actions/checkout@v2
-      - name: Run
-        run: |
+      - name: Describe Environment 
+      - run: |
           pwd
           set
           dir
+      - name: Run Tests
+        run: |
           cd test
-          dir
+          make all
+          cd ..
+      -name: Build ATTiny214 Target
+          cd src
           make all
