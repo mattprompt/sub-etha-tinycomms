@@ -6,7 +6,6 @@ ADD io.h.patch .
 # Install AVR environment 
 # ref: https://www.linuxandubuntu.com/home/setting-up-avr-gcc-toolchain-and-avrdude-to-program-an-avr-development-board-in-ubuntu
 # Note installation order is important
-# -q 
 RUN apt-get update && apt-get upgrade -y --no-install-recommends && \
     apt-get install -y --no-install-recommends \
     binutils \
@@ -27,8 +26,8 @@ RUN apt-get update && apt-get upgrade -y --no-install-recommends && \
     git \
     unzip \
     wget \
-    patch
-
+    patch \
+    ca-certificates
 
 # Install CPPUTEST
 # ref: https://cpputest.github.io/
@@ -41,7 +40,6 @@ RUN git clone -v --progress git://github.com/cpputest/cpputest.git \
 
 ENV CPPUTEST_HOME=/workspace/cpputest
 
-
 # Patch avr-gcc environment to work with AtTiny214
 WORKDIR /workspace/ATtiny_DFP
 RUN wget http://packs.download.atmel.com/Atmel.ATtiny_DFP.1.9.337.atpack \
@@ -50,12 +48,6 @@ RUN wget http://packs.download.atmel.com/Atmel.ATtiny_DFP.1.9.337.atpack \
     && cp ./gcc/dev/attiny214/avrxmega3/short-calls/libattiny214.a /lib/avr/lib/avrxmega3/short-calls/ \
     && cp ./include/avr/iotn214.h /lib/avr/include/avr \
     && patch -b /lib/avr/include/avr/io.h -i /workspace/io.h.patch
-
-# Clean up
-RUN apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm -fR /workspace/ATtiny_DFP/* \
-    && rmdir /workspace/ATtiny_DFP
 
 CMD /bin/bash
 

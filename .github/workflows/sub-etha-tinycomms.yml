@@ -1,0 +1,25 @@
+name: SUB-ETHA-TINYCOMMS
+
+on: push
+
+jobs:
+  test:
+    name: Unit Tests & Build 
+    runs-on: ubuntu-latest
+    container: docker://mattprompt/sub-etha-tinycomms:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Describe Environment 
+        run: |
+          pwd
+          set
+          dir
+      - name: Run Tests
+        run: |
+          cd test
+          make all
+          cd ..
+      - name: Build ATTiny214 Target
+        run: |
+          cd src
+          make all
