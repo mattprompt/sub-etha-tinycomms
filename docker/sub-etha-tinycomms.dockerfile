@@ -6,7 +6,6 @@ ADD io.h.patch .
 # Install AVR environment 
 # ref: https://www.linuxandubuntu.com/home/setting-up-avr-gcc-toolchain-and-avrdude-to-program-an-avr-development-board-in-ubuntu
 # Note installation order is important
-# -q 
 RUN apt-get update && apt-get upgrade -y --no-install-recommends && \
     apt-get install -y --no-install-recommends \
     binutils \
@@ -30,7 +29,6 @@ RUN apt-get update && apt-get upgrade -y --no-install-recommends && \
     patch \
     ca-certificates
 
-
 # Install CPPUTEST
 # ref: https://cpputest.github.io/
 #apt-get install -y cpputest
@@ -41,7 +39,6 @@ RUN git clone -v --progress git://github.com/cpputest/cpputest.git \
     && autoreconf . -i && ./configure && make tdd
 
 ENV CPPUTEST_HOME=/workspace/cpputest
-
 
 # Patch avr-gcc environment to work with AtTiny214
 WORKDIR /workspace/ATtiny_DFP
