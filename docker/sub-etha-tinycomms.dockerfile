@@ -49,12 +49,6 @@ RUN wget http://packs.download.atmel.com/Atmel.ATtiny_DFP.1.9.337.atpack \
     && cp ./include/avr/iotn214.h /lib/avr/include/avr \
     && patch -b /lib/avr/include/avr/io.h -i /workspace/io.h.patch
 
-# Clean up
-RUN apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm -fR /workspace/ATtiny_DFP/* \
-    && rmdir /workspace/ATtiny_DFP
-
 CMD /bin/bash
 
 #MMMMMMMMMMMMMMMMMMMMMMMMMMMNKkdl:,...         ...';cok0NWMMMMMMMMMMMMMMMMMMMMMM
