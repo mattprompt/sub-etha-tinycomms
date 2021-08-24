@@ -142,8 +142,7 @@ if any other cmd msg log fault and send unknow/unimplimented command
  * Return:   0 - Okay
  *          -1 - fail
 */
-static int8_t unpackMsgHeader(uint8_t *buf, Msg_Header_t *msgHeader)
-{
+static int8_t unpackMsgHeader(uint8_t *buf, Msg_Header_t *msgHeader) {
     ASSERT(buf != NULL);
     if (buf == NULL)
         return -1;
@@ -154,10 +153,7 @@ static int8_t unpackMsgHeader(uint8_t *buf, Msg_Header_t *msgHeader)
     return 0;
 }
 
-static int8_t unpackCmd1(uint8_t *buf_i, Cmd1_uMsg_t *msg_o)
-{
-    ASSERT(buf_i != NULL);
-    if (buf_i == NULL)
+static int8_t packMsgHeader(uint8_t *buf, Msg_Header_t *msgHeader) {
         return -1;
 
     for (uint8_t i = 0; i < (sizeof(Cmd1_Msg_t) / sizeof(uint8_t)); i++)
@@ -168,10 +164,11 @@ static int8_t unpackCmd1(uint8_t *buf_i, Cmd1_uMsg_t *msg_o)
     return 0;
 }
 
-static int8_t unpackCmd2(uint8_t *buf_i, Cmd2_uMsg_t *msg_o)
-{
-    ASSERT(buf_i != NULL);
-    if (buf_i == NULL)
+static int8_t unpackCmd1(uint8_t *buf, Cmd1_Msg_t *msg) {
+    ASSERT(buf != NULL);
+    if (buf == NULL) {
+        return -1;
+    }
         return -1;
 
     msg_o->msg.header.cmd = buf_i[0];
@@ -182,18 +179,15 @@ static int8_t unpackCmd2(uint8_t *buf_i, Cmd2_uMsg_t *msg_o)
     return 0;
 }
 
-int8_t processCmd1(Cmd1_Msg_t msg)
-{
+static int8_t unpackCmd2(uint8_t *buf, Cmd2_Msg_t *msg) {
     return 0;
 }
 
-int8_t processCmd2(Cmd2_Msg_t msg)
-{
+static int8_t packRply1Payload(uint8_t *buf, Rply1_Payload_t *msgPayload) {
     return 0;
 }
 
-int8_t processMsg(uint8_t *buf)
-{
+static int8_t processCmd1(uint8_t *buf_in) {
     Msg_Header_t msgHeader = {.cmd = 0x0, .len = 0x0};
     Cmd1_uMsg_t cmd1;
     Cmd2_uMsg_t cmd2;
